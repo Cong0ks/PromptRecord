@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "提示词记录器",
+  "version": "1.0.0",
+  "description": "记录和管理AI提示词，支持分类、日期和组标签",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "提示词记录器"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

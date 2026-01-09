@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>提示词记录器</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>提示词记录器</h1>
+      <button id="addBtn" class="btn-primary">+ 新建提示词</button>
+    </header>
+
+    <!-- 搜索和筛选 -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="搜索提示词...">
+      <select id="categoryFilter">
+        <option value="">全部分类</option>
+      </select>
+      <select id="groupFilter">
+        <option value="">全部组</option>
+      </select>
+    </div>
+
+    <!-- 提示词列表 -->
+    <div id="promptList" class="prompt-list"></div>
+
+    <!-- 空状态 -->
+    <div id="emptyState" class="empty-state" style="display: none;">
+      <p>还没有提示词记录</p>
+      <button id="addFirstBtn" class="btn-primary">创建第一个</button>
+    </div>
+  </div>
+
+  <!-- 编辑模态框 -->
+  <div id="editModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">新建提示词</h2>
+        <button id="closeModal" class="close-btn">&times;</button>
+      </div>
+      <form id="promptForm">
+        <input type="hidden" id="promptId">
+
+        <div class="form-group">
+          <label for="title">标题</label>
+          <input type="text" id="title" required placeholder="输入提示词标题">
+        </div>
+
+        <div class="form-group">
+          <label for="content">提示词内容</label>
+          <textarea id="content" required rows="6" placeholder="输入提示词内容"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="category">分类</label>
+            <input type="text" id="category" list="categoryList" placeholder="选择或输入分类">
+            <datalist id="categoryList"></datalist>
+          </div>
+
+          <div class="form-group">
+            <label for="groups">组标签</label>
+            <input type="text" id="groups" placeholder="用逗号分隔，如: 工作, AI, 翻译">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">保存</button>
+          <button type="button" id="deleteBtn" class="btn-danger" style="display: none;">删除</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
